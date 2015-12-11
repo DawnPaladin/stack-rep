@@ -1,0 +1,50 @@
+$button-width: 50px;
+$columns: 4;
+$keypad-width: $button-width * $columns;
+$button-height: 50px;
+
+.keypad {
+	width: $keypad-width;
+	display: flex;
+	flex-wrap: wrap;
+}
+.button {
+	width: $button-width;
+	height: 50px;
+	padding: 10px;
+	font-size: 20px;
+	background-color: hsl(360, 0%, 95%);
+	border: 1px solid silver;
+	text-align: center;
+	cursor: pointer;
+}
+.button.small-text {
+	font-size: 12px;
+	padding: 8px;
+}
+.numberpad {
+	width: 3 * $button-width;
+	display: flex;
+	flex-wrap: wrap;
+}
+.vertical-controls {
+	width: $button-width;
+	display: flex;
+	flex-direction: column;
+}
+
+.display {
+	width: $keypad-width;
+	height: $button-height;
+	padding: .25em;
+	font-size: 2em;
+	text-align: right;
+	background-color: hsl(360, 0%, 95%);
+	border: 1px solid silver;
+}
+#operator-display {
+	float: left;
+}
+#number-display {
+	float: right;
+}
