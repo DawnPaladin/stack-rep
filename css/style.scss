@@ -5,3 +5,14 @@
 .gold-badge { color: #FFCC00; }
 .silver-badge { color: #C5C5C5; }
 .bronze-badge { color: #CC9966; }
+.question-score {
+	float: left;
+	width: 3em;
+	height: 2em;
+	text-align: center;
+	font-size: 2em;
+}
+.question-text {
+	height: 1.725em;
+	overflow: hidden;
+}
