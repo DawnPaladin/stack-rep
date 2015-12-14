@@ -17,10 +17,6 @@ $.getJSON(`https://api.stackexchange.com/2.2/users/${ userID }/questions?site=${
 		$row.find('.question-score').text(qData.score);
 		$row.find('.question-title').html(qData.title).parent().attr('href', qData.link);
 		$row.find('.question-text').html(qData.body);
-		$row.find('.question-container').click(function (event) {
-			var $questionContainer = $(event.currentTarget);
-			$questionContainer.toggleClass('closed');
-		});
 	});
 });
 var answers;
@@ -43,10 +39,6 @@ $.getJSON(`https://api.stackexchange.com/2.2/users/${ userID }/answers?site=${ s
 			$row.find('.answer-question').html(aData.question_title).parent().attr('href', aData.link);
 			$row.find('.answer-score').text(aData.score);
 			$row.find('.answer-text').html(aData.body);
-			$row.find('.answer-container').click(function (event) {
-				var $answerContainer = $(event.currentTarget);
-				$answerContainer.toggleClass('closed');
-			});
 		});
 	});
 });
