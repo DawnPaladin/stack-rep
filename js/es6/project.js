@@ -23,11 +23,26 @@ $.getJSON(`https://api.stackexchange.com/2.2/users/${userID}/questions?site=${si
 	});
 });
 var answers;
-$.getJSON(`https://api.stackexchange.com/2.2/users/${userID}/answers?site=${site}&key=${apiKey}&filter=withbody`, function(json) {
+$.getJSON(`https://api.stackexchange.com/2.2/users/${userID}/answers?site=${site}&key=${apiKey}&filter=!b0OfNJcHF3jvMq`, function(json) {
 	answers = json.items;
-	json.items.forEach(function(aData) {
-		var $row = $('#answer-template').clone().appendTo('#answer-rows').removeClass('hidden');
-		$row.find('.answer-score').text(aData.score);
-		$row.find('.answer-text').html(aData.body);
+	var answerQuestions = answers.map(function(answer) {
+		return answer.question_id;
+	});
+	var answerQuestionsList = answerQuestions.join(";");
+	$.getJSON(`https://api.stackexchange.com/2.2/questions/${answerQuestionsList}?site=${site}&key=${apiKey}`, function(json) {
+		answerQuestionsArray = json.items;
+		// add question title and URL to each answer
+		for (var i = 0; i < answers.length; i++) {
+			answers[i].question_title = answerQuestionsArray[i].title;
+			//answers[i].question_link = answerQuestionsArray[i].link;
+		}
+		// arrays ready
+		answers.forEach(function(aData) {
+			var $row = $('#answer-template').clone().appendTo('#answer-rows').removeClass('hidden');
+			$row.find('.answer-question').html(aData.question_title)
+				.parent().attr('href', aData.link);
+			$row.find('.answer-score').text(aData.score);
+			$row.find('.answer-text').html(aData.body);
+		});
 	});
 });
