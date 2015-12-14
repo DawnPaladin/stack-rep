@@ -50,5 +50,10 @@ lookup(defaultUserID);
 $('#random-user-btn').click(function (event) {
 	var highestUserId = 7472117;
 	var randomUserId = Math.floor(Math.random() * highestUserId);
+	$('#username-input').val(randomUserId);
 	lookup(randomUserId);
+});
+$('#user-lookup-btn').click(function (event) {
+	var userId = $('#username-input').val();
+	lookup(userId);
 });
