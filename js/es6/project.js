@@ -17,7 +17,17 @@ $.getJSON(`https://api.stackexchange.com/2.2/users/${userID}/questions?site=${si
 	json.items.forEach(function(qData) {
 		var $row = $('#question-template').clone().appendTo('#question-rows').removeClass('hidden');
 		$row.find('.question-score').text(qData.score);
-		$row.find('.question-title').html(qData.title);
+		$row.find('.question-title').html(qData.title)
+			.parent().attr('href', qData.link);
 		$row.find('.question-text').html(qData.body);
+	});
+});
+var answers;
+$.getJSON(`https://api.stackexchange.com/2.2/users/${userID}/answers?site=${site}&key=${apiKey}&filter=withbody`, function(json) {
+	answers = json.items;
+	json.items.forEach(function(aData) {
+		var $row = $('#answer-template').clone().appendTo('#answer-rows').removeClass('hidden');
+		$row.find('.answer-score').text(aData.score);
+		$row.find('.answer-text').html(aData.body);
 	});
 });
