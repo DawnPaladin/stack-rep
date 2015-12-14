@@ -1,7 +1,8 @@
 .location {
-	margin: auto;
-	width: 128px;
+	text-align: center;
+	margin-bottom: 2em;
 }
+.location button, .location input { display: inline-block; }
 .gold-badge { color: #FFCC00; }
 .silver-badge { color: #C5C5C5; }
 .bronze-badge { color: #CC9966; }

@@ -10,8 +10,28 @@
 
 <body>
 
+<div class="templates hidden">
+	<div class="question hidden" id="question-template">
+		<div class="question-score col-md-1"></div>
+		<div class="question-container col-md-11">
+			<a><h4 class="question-title"></h4></a>
+			<div class="question-text"></div>
+		</div>
+	</div>
+	<div class="answer hidden" id="answer-template">
+		<div class="answer-score col-md-1"></div>
+		<div class="answer-container col-md-11">
+			<a><span class="answer-question"></span></a>
+			<div class="answer-text"></div>
+		</div>
+	</div>
+</div>
+
 <div class="location">
-	<img class="avatar">
+	<img class="avatar"><br>
+	<button id="random-user-btn">Random</button>
+	<input id="username-input">
+	<button id="user-lookup-btn">Look up user</button>
 </div>
 <div class="container">
 	<div class="row">
@@ -22,23 +42,9 @@
 			</div>
 			<h3>Questions</h3>
 			<div id="question-rows">
-				<div class="question hidden" id="question-template">
-					<div class="question-score col-md-1"></div>
-					<div class="question-container col-md-11">
-						<a><h4 class="question-title"></h4></a>
-						<div class="question-text"></div>
-					</div>
-				</div>
 			</div>
 			<h3>Answers</h3>
 			<div id="answer-rows">
-				<div class="answer hidden" id="answer-template">
-					<div class="answer-score col-md-1"></div>
-					<div class="answer-container col-md-11">
-						<a><span class="answer-question"></span></a>
-						<div class="answer-text"></div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
